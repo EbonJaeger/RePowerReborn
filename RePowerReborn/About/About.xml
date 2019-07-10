@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>[1.0] RePower</name>
   <targetVersion>1.00.2059</targetVersion>
-  <author>Texel (updated to 1.0 by NubsPixel)</author>
+  <author>Texel (updated to 1.0 by NubsPixel, continued by EbonJaeger)</author>
   <description> &lt;color=orange&gt;&lt;b&gt;Important: &lt;/b&gt; This mod requires HubsLib to be loaded before it in the load order.&lt;/color&gt;
 
  Rebalance power consumption based on when an object is in use.

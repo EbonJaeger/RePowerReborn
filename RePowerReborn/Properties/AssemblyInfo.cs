@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RePowerReborn")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Rebalance power consumption based on when an object is in use.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RePowerReborn")]
