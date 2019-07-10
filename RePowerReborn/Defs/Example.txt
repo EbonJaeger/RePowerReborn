@@ -1,0 +1,16 @@
+<Defs>
+	<RePower.RePowerDef>
+		<!-- Unique name for the mod-compatiability def -->
+		<defName>RePowerTableBionics</defName>
+		<!-- defName of the building we are looking for to override -->
+		<targetDef>TableBionics</targetDef>
+		<!-- Power network effect in "low power" mode, which is the default state -->
+		<lowPower>-10</lowPower>
+		<!-- Power network effect in "high power" mode, note this can be positive (cremate bodies for power?) -->
+		<highPower>-1600</highPower>
+		<!-- If true, set to a high power state, but only works for workbenches. -->
+		<poweredWorkbench>true</poweredWorkbench>
+		<!-- If true, set to high power state whenever reserved by a colonist, for non-workbenches (like deep drill, powered mortars) -->
+		<poweredReservable>false</poweredReservable>
+	</RePower.RePowerDef>
+</Defs>
