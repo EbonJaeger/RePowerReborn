@@ -66,7 +66,6 @@
   <ItemGroup>
     <Content Include="About\About.xml" />
     <Content Include="About\Preview.png" />
-    <Content Include="About\PublishedFileId.txt" />
     <Content Include="Defs\Example.txt" />
     <Content Include="Defs\RePowerModSupport_EPOE.xml" />
     <Content Include="Defs\RePowerVanillaBuildings.xml" />
