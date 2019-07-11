@@ -217,25 +217,6 @@ namespace RePower
             PowerLevels.Add(defName, new Vector2(idlePower, activePower));
         }
 
-        public float PowerFactor(CompPowerTrader trader, Building building)
-        {
-            var defName = building.def.defName;
-
-            //instance.Logger.Message (defName + " checked for power factor");
-
-            if (PowerLevels.ContainsKey(defName))
-            {
-                bool inUse = Tracker.BuildingsUsedLastTick.Contains(building);
-
-                Logger.Message(string.Format("{0} ({1}) power adjusted", building.ThingID, defName));
-
-                // Return the idle power if not in use, otherwise, return the active power
-                return PowerLevels[defName][inUse ? 1 : 0];
-            }
-
-            return 1;
-        }
-
         public HugsLib.Utils.ModLogger GetLogger()
         {
             return Logger;
