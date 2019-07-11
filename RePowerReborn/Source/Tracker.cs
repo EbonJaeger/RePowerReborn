@@ -21,14 +21,18 @@ namespace RePower
         public HashSet<Building_Door> Autodoors = new HashSet<Building_Door>();
         public HashSet<Building> DeepDrills = new HashSet<Building>();
 
-        private readonly ThingDef MedicalBedDef;
-        private readonly ThingDef HiTechResearchBenchDef;
-        private readonly ThingDef AutodoorDef;
-        private readonly ThingDef DeepDrillDef;
+        private ThingDef MedicalBedDef;
+        private ThingDef HiTechResearchBenchDef;
+        private ThingDef AutodoorDef;
+        private ThingDef DeepDrillDef;
 
         public Tracker(RePower rePower)
         {
             RePower = rePower;
+        }
+
+        public void LoadThingDefs()
+        {
             MedicalBedDef = ThingDef.Named("HospitalBed");
             HiTechResearchBenchDef = ThingDef.Named("HiTechResearchBench");
             AutodoorDef = ThingDef.Named("Autodoor");

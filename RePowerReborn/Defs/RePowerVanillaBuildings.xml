@@ -1,0 +1,161 @@
+﻿<Defs>
+  <RePower.RePowerDef>
+    <!-- Autodoors -->
+    <defName>RePowerAutodoor</defName>
+    <targetDef>Autodoor</targetDef>
+    <lowPower>-5</lowPower>
+    <highPower>-500</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Biofuel Refinery -->
+    <defName>RePowerBiofuelRefinery</defName>
+    <targetDef>BiofuelRefinery</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-1800</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Deep Drill -->
+    <defName>RePowerDeepDrill</defName>
+    <targetDef>DeepDrill</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-500</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Electric Crematorium -->
+    <defName>RePowerElectricCrematorium</defName>
+    <targetDef>ElectricCrematorium</targetDef>
+    <lowPower>-200</lowPower>
+    <highPower>-750</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Electric Smelter -->
+    <defName>RePowerElectricSmelter</defName>
+    <targetDef>ElectricSmelter</targetDef>
+    <lowPower>-400</lowPower>
+    <highPower>-4500</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Electric Smithy -->
+    <defName>RePowerElectricSmithy</defName>
+    <targetDef>ElectricSmithy</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-1000</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Electric Stove -->
+    <defName>RePowerElectricStove</defName>
+    <targetDef>ElectricStove</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-1000</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Electric Tailoring Bench -->
+    <defName>RePowerElectricTailoringBench</defName>
+    <targetDef>ElectricTailoringBench</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-500</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Fabrication Bench -->
+    <defName>RePowerFabricationBench</defName>
+    <targetDef>FabricationBench</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-1800</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Flat Screen Television -->
+    <defName>RePowerFlatscreenTelevision</defName>
+    <targetDef>FlatscreenTelevision</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-400</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Hi-Tech Research Bench -->
+    <defName>RePowerHiTechResearchBench</defName>
+    <targetDef>HiTechResearchBench</targetDef>
+    <lowPower>-100</lowPower>
+    <highPower>-1000</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Machining Bench -->
+    <defName>RePowerMachiningBench</defName>
+    <targetDef>TableMachining</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-1400</highPower>
+    <poweredWorkbench>true</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Megascreen Television -->
+    <defName>RePowerMegascreenTelevision</defName>
+    <targetDef>MegascreenTelevision</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-400</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Multi Analyzer -->
+    <defName>RePowerMultiAnalyzer</defName>
+    <targetDef>MultiAnalyzer</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-600</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
+    <!-- Tube Television -->
+    <defName>RePowerTubeTelevision</defName>
+    <targetDef>TubeTelevision</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-400</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+  
+  <RePower.RePowerDef>
+    <!-- Vitals Monitor -->
+    <defName>RePowerVitalsMonitor</defName>
+    <targetDef>VitalsMonitor</targetDef>
+    <lowPower>-10</lowPower>
+    <highPower>-1000</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>true</poweredReservable>
+  </RePower.RePowerDef>
+</Defs>

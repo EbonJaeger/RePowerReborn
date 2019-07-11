@@ -119,31 +119,7 @@ namespace RePower
 
         public override void Initialize()
         {
-            RegisterWorkTable("ElectricTailoringBench", -10, -500); // 10W Idle, 500W active
-            RegisterWorkTable("ElectricSmithy", -10, -1000); // 10W Idle, 1000W Active
-            RegisterWorkTable("TableMachining", -10, -1400); // 10W Idle, 1400W Active
-            RegisterWorkTable("ElectricStove", -10, -1000); // 10W Idle, 1000W Active
-            RegisterWorkTable("ElectricSmelter", -400, -4500); // 400W Idle, 4500W Active
-            RegisterWorkTable("BiofuelRefinery", -10, -1800); // 10W Idle, 1800W Active
-            RegisterWorkTable("FabricationBench", -10, -1800); // 10W Idle, 1800W Active
-            RegisterWorkTable("ElectricCrematorium", -200, -750); // 200W Idle, 750W Active
-
-            RegisterSpecialPowerTrader("MultiAnalyzer", -10, -600); // 10W Idle, 600W Active
-            RegisterSpecialPowerTrader("VitalsMonitor", -10, -1000); // 10W Idle, 1000W Active
-            RegisterSpecialPowerTrader("HiTechResearchBench", -100, -1000); // 100W Idle, 1000W Active
-            RegisterSpecialPowerTrader("Autodoor", -5, -500); // 5W Idle, 500W Active
-
-            // Televisions!
-            RegisterSpecialPowerTrader("TubeTelevision", -10, -400); // 10W Idle, 400W Active
-            RegisterSpecialPowerTrader("FlatscreenTelevision", -10, -400); // 10W Idle, 400W Active
-            RegisterSpecialPowerTrader("MegascreenTelevision", -10, -400); // 10W Idle, 400W Active
-
-            // Drill
-            RegisterSpecialPowerTrader("DeepDrill", -10, -500); // 10W Idle, 500W Active
-
-            Logger.Message("Initialized Components");
-
-            Logger.Message("Registered instance");
+            Tracker = new Tracker(this);
         }
 
         public override void DefsLoaded()
@@ -160,11 +136,9 @@ namespace RePower
                     Logger.Message(string.Format("No def named {0} to load, skipping.", target));
                     continue;
                 }
-                else
-                {
-                    ++loaded;
-                    Logger.Message(string.Format("Registering def named {0}", target));
-                }
+
+                ++loaded;
+                Logger.Message(string.Format("Registering def named {0}", target));
 
                 if (def.poweredWorkbench)
                 {
@@ -177,42 +151,32 @@ namespace RePower
                 }
             }
 
-            Logger.Message(string.Format("Loaded {1} of {0} mod support defs.", num, loaded));
-
-            Tracker = new Tracker(this);
+            Logger.Message(string.Format("Loaded {1} of {0} building defs.", num, loaded));
+            Tracker.LoadThingDefs();
         }
 
         void RegisterExternalReservable(string defName, int lowPower, int highPower)
         {
+            if (defName == null)
+            {
+                Logger.Warning(string.Format("Def Named {0} could not be found, it's respective mod probably isn't loaded", defName));
+                return;
+            }
+
             try
             {
                 var def = DefDatabase<ThingDef>.GetNamedSilentFail(defName);
-
-                if (defName == null)
-                {
-                    Logger.Message(string.Format("Def Named {0} could not be found, it's respective mod probably isn't loaded", defName));
-                    return;
-                }
-                else
-                {
-                    Logger.Message(string.Format("Attempting to register def named {0}", defName));
-                }
 
                 RegisterWorkTable(defName, lowPower, highPower);
                 Tracker.BuildingDefsReservable.Add(def);
             }
             catch (Exception e)
             {
-                Logger.Message(e.Message);
+                Logger.Error(string.Format("Error while registering a reservable building: {0}", e.Message));
             }
         }
 
         void RegisterWorkTable(string defName, float idlePower, float activePower)
-        {
-            PowerLevels.Add(defName, new Vector2(idlePower, activePower));
-        }
-
-        void RegisterSpecialPowerTrader(string defName, float idlePower, float activePower)
         {
             PowerLevels.Add(defName, new Vector2(idlePower, activePower));
         }
