@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Tracker.cs" />
     <Compile Include="Source\RePower.cs" />
     <Compile Include="Source\RePowerDef.cs" />
   </ItemGroup>
