@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Manifest>
+  <identifier>RePowerReborn</identifier>
+  <version>1.0.0.0</version>
+  <dependencies>
+    <li>HugsLib</li>
+  </dependencies>
+  <loadAfter>
+    <li>HugsLib</li>
+  </loadAfter>
+  <manifestUri>https://raw.githubusercontent.com/EbonJaeger/RePowerReborn/master/RePowerReborn/About/Manifest.xml</manifestUri>
+  <downloadUri>https://github.com/EbonJaeger/RePowerReborn/releases/latest</downloadUri>
+</Manifest>
