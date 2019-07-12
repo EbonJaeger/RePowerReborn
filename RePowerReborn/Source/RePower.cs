@@ -125,20 +125,20 @@ namespace RePower
         public override void DefsLoaded()
         {
             var defs = DefDatabase<RePowerDef>.AllDefs;
+            var loadedDefs = new List<string>();
             int num = 0, loaded = 0;
+
             foreach (var def in defs)
             {
                 ++num;
                 var target = def.targetDef;
                 var namedDef = DefDatabase<ThingDef>.GetNamedSilentFail(target);
+
                 if (namedDef == null)
                 {
                     Logger.Message(string.Format("No def named {0} to load, skipping.", target));
                     continue;
                 }
-
-                ++loaded;
-                Logger.Message(string.Format("Registering def named {0}", target));
 
                 if (def.poweredWorkbench)
                 {
@@ -149,9 +149,13 @@ namespace RePower
                 {
                     RegisterExternalReservable(namedDef.defName, def.lowPower, def.highPower);
                 }
+
+                ++loaded;
+                loadedDefs.Add(target);
             }
 
-            Logger.Message(string.Format("Loaded {1} of {0} building defs.", num, loaded));
+            var names = String.Join(", ", loadedDefs.ToArray()).Trim();
+            Logger.Message(string.Format("Loaded {1} of {0} building defs: {2}", num, loaded, names));
             Tracker.LoadThingDefs();
         }
 
