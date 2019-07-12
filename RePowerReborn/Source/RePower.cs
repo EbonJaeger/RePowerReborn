@@ -126,6 +126,7 @@ namespace RePower
         {
             var defs = DefDatabase<RePowerDef>.AllDefs;
             var loadedDefs = new List<string>();
+            var skippedDefs = new List<string>();
             int num = 0, loaded = 0;
 
             foreach (var def in defs)
@@ -136,7 +137,7 @@ namespace RePower
 
                 if (namedDef == null)
                 {
-                    Logger.Message(string.Format("No def named {0} to load, skipping.", target));
+                    skippedDefs.Add(target);
                     continue;
                 }
 
@@ -156,6 +157,13 @@ namespace RePower
 
             var names = String.Join(", ", loadedDefs.ToArray()).Trim();
             Logger.Message(string.Format("Loaded {1} of {0} building defs: {2}", num, loaded, names));
+
+            if (skippedDefs.Count > 0)
+            {
+                names = String.Join(", ", skippedDefs.ToArray()).Trim();
+                Logger.Message(string.Format("Skipped {0} defs because they could not be found: {1}", skippedDefs.Count, names));
+            }
+
             Tracker.LoadThingDefs();
         }
 
