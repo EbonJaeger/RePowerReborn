@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace RePower
@@ -85,11 +86,7 @@ namespace RePower
                 if (mediBed == null) continue; // Skip null beds (out of date cache)
                 if (mediBed.Map == null) continue;
 
-                bool occupied = false;
-                foreach (var occupant in mediBed.CurOccupants)
-                {
-                    occupied = true;
-                }
+                bool occupied = mediBed.CurOccupants.Count() > 0;
 
                 if (occupied)
                 {
