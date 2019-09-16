@@ -7,7 +7,7 @@
   </dependencies>
   <incompatibleWith>
     <li>RePower</li>
-    <li>[1.0] RePower</li>
+    <li>[1.0]RePower</li>
   </incompatibleWith>
   <loadAfter>
     <li>HugsLib</li>
