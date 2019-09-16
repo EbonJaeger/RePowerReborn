@@ -70,6 +70,7 @@ namespace RePower
             Tracker.EvalResearchTables();
             Tracker.EvalAutodoors();
             Tracker.EvalDeepDrills();
+            Tracker.EvalHydroponicsBasins();
 
             // Set the power level to idle for 
             foreach (Thing thing in Tracker.BuildingsToModify)
@@ -151,6 +152,13 @@ namespace RePower
                     RegisterExternalReservable(namedDef.defName, def.lowPower, def.highPower);
                 }
 
+                // Some objects might not be reservable, like workbenches.
+                // e.g., HydroponicsBasins
+                if (!def.poweredWorkbench && !def.poweredReservable)
+                {
+                    PowerLevels.Add(namedDef.defName, new Vector2(def.lowPower, def.highPower));
+                }
+
                 ++loaded;
                 loadedDefs.Add(target);
             }
@@ -171,7 +179,7 @@ namespace RePower
         {
             if (defName == null)
             {
-                Logger.Warning(string.Format("Def Named {0} could not be found, it's respective mod probably isn't loaded", defName));
+                Logger.Warning(string.Format("Def Named {0} could not be found, its respective mod probably isn't loaded", defName));
                 return;
             }
 

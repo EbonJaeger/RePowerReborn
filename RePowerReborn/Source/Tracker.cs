@@ -21,11 +21,13 @@ namespace RePower
 
         public HashSet<Building_Door> Autodoors = new HashSet<Building_Door>();
         public HashSet<Building> DeepDrills = new HashSet<Building>();
+        public HashSet<Building> HydroponcsBasins = new HashSet<Building>();
 
         private ThingDef MedicalBedDef;
         private ThingDef HiTechResearchBenchDef;
         private ThingDef AutodoorDef;
         private ThingDef DeepDrillDef;
+        private ThingDef HydroponicsBasinDef;
 
         public Tracker(RePower rePower)
         {
@@ -38,6 +40,7 @@ namespace RePower
             HiTechResearchBenchDef = ThingDef.Named("HiTechResearchBench");
             AutodoorDef = ThingDef.Named("Autodoor");
             DeepDrillDef = ThingDef.Named("DeepDrill");
+            HydroponicsBasinDef = ThingDef.Named("HydroponicsBasin");
         }
 
         public static void AddBuildingUsed(Building building)
@@ -152,6 +155,30 @@ namespace RePower
             }
         }
 
+        public void EvalHydroponicsBasins()
+        {
+            foreach (var basin in HydroponcsBasins)
+            {
+                if (basin == null) continue;
+                if (basin.Map == null) continue;
+
+                CellRect.CellRectIterator cri = basin.OccupiedRect().GetIterator();
+                while (!cri.Done())
+                {
+                    var thingsOnTile = basin.Map.thingGrid.ThingsListAt(cri.Current);
+                    foreach (var thing in thingsOnTile)
+                    {
+                        if (thing is Plant)
+                        {
+                            BuildingsInUse.Add(basin);
+                            break;
+                        }
+                    }
+                    cri.MoveNext();
+                }
+            }
+        }
+
         public HashSet<ThingDef> thingDefsToLookFor;
         public void ScanForThings()
         {
@@ -173,6 +200,7 @@ namespace RePower
             HiTechResearchBenches.Clear();
             Autodoors.Clear();
             DeepDrills.Clear();
+            HydroponcsBasins.Clear(); 
 
             var maps = Find.Maps;
             foreach (Map map in maps)
@@ -205,6 +233,9 @@ namespace RePower
 
                 var deepDrills = map.listerBuildings.AllBuildingsColonistOfDef(DeepDrillDef);
                 DeepDrills.UnionWith(deepDrills);
+
+                var hydroponicsBasins = map.listerBuildings.AllBuildingsColonistOfDef(HydroponicsBasinDef);
+                HydroponcsBasins.UnionWith(hydroponicsBasins);
             }
         }
 
