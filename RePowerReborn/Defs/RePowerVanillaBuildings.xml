@@ -110,6 +110,16 @@
   </RePower.RePowerDef>
 
   <RePower.RePowerDef>
+    <!-- HydroponicsBasins -->
+    <defName>RePowerHydroponicsBasin</defName>
+    <targetDef>HydroponicsBasin</targetDef>
+    <lowPower>-5</lowPower>
+    <highPower>-75</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+  </RePower.RePowerDef>
+
+  <RePower.RePowerDef>
     <!-- Machining Bench -->
     <defName>RePowerMachiningBench</defName>
     <targetDef>TableMachining</targetDef>
