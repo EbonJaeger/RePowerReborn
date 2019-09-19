@@ -66,11 +66,7 @@ namespace RePower
                 Tracker.UpdateBuildingsToTick();
             }
 
-            Tracker.EvalBeds();
-            Tracker.EvalResearchTables();
-            Tracker.EvalAutodoors();
-            Tracker.EvalDeepDrills();
-            Tracker.EvalHydroponicsBasins();
+            Tracker.EvalAll();
 
             // Set the power level to idle for 
             foreach (Thing thing in Tracker.BuildingsToModify)
@@ -152,9 +148,14 @@ namespace RePower
                     RegisterExternalReservable(namedDef.defName, def.lowPower, def.highPower);
                 }
 
+                if (def.scheduledPower)
+                {
+                    RegisterScheduledBuilding(namedDef.defName, def.lowPower, def.highPower);
+                }
+
                 // Some objects might not be reservable, like workbenches.
                 // e.g., HydroponicsBasins
-                if (!def.poweredWorkbench && !def.poweredReservable)
+                if (!def.poweredWorkbench && !def.poweredReservable && !def.scheduledPower)
                 {
                     PowerLevels.Add(namedDef.defName, new Vector2(def.lowPower, def.highPower));
                 }
@@ -193,6 +194,27 @@ namespace RePower
             catch (Exception e)
             {
                 Logger.Error(string.Format("Error while registering a reservable building: {0}", e.Message));
+            }
+        }
+
+        void RegisterScheduledBuilding(string defName, int lowPower, int highPower)
+        {
+            if (defName == null)
+            {
+                Logger.Warning(string.Format("Def Named {0} could not be found", defName));
+                return;
+            }
+
+            try
+            {
+                var def = DefDatabase<ThingDef>.GetNamedSilentFail(defName);
+
+                RegisterWorkTable(defName, lowPower, highPower);
+                Tracker.ScheduledBuildingsDefs.Add(def);
+            }
+            catch (Exception e)
+            {
+                Logger.Error(string.Format("Error while registering a scheduled building: {0}", e.Message));
             }
         }
 

@@ -16,6 +16,9 @@ namespace RePower
         public HashSet<ThingDef> BuildingDefsReservable = new HashSet<ThingDef>();
         public HashSet<Building> ReservableBuildings = new HashSet<Building>();
 
+        public HashSet<ThingDef> ScheduledBuildingsDefs = new HashSet<ThingDef>();
+        public HashSet<Building> ScheduledBuildings = new HashSet<Building>();
+
         public HashSet<Building_Bed> MedicalBeds = new HashSet<Building_Bed>();
         public HashSet<Building> HiTechResearchBenches = new HashSet<Building>();
 
@@ -48,6 +51,16 @@ namespace RePower
             BuildingsInUse.Add(building);
         }
 
+        public void EvalAll()
+        {
+            EvalBeds();
+            EvalResearchTables();
+            EvalAutodoors();
+            EvalDeepDrills();
+            EvalHydroponicsBasins();
+            EvalScheduledBuildings();
+        }
+
         public void ScanExternalReservable()
         {
             ReservableBuildings.Clear();
@@ -75,6 +88,41 @@ namespace RePower
                 if (building.Map == null) continue;
 
                 if (building.Map.reservationManager.IsReservedByAnyoneOf(building, building.Faction))
+                {
+                    BuildingsInUse.Add(building);
+                }
+            }
+        }
+
+        public void ScanScheduledBuildings()
+        {
+            ScheduledBuildings.Clear();
+            foreach (ThingDef def in ScheduledBuildingsDefs)
+            {
+                foreach (var map in Find.Maps)
+                {
+                    if (map == null) continue;
+                    var buildings = map.listerBuildings.AllBuildingsColonistOfDef(def);
+                    foreach (var building in buildings)
+                    {
+                        if (building == null) continue;
+                        ScheduledBuildings.Add(building);
+                    }
+                }
+            }
+        }
+
+        public void EvalScheduledBuildings()
+        {
+            foreach (var building in ScheduledBuildings)
+            {
+                if (building == null) continue;
+                if (building.Map == null) continue;
+
+                var comp = building.GetComp<CompSchedule>();
+                if (comp == null) continue; // Doesn't actually have a schedule
+
+                if (comp.Allowed)
                 {
                     BuildingsInUse.Add(building);
                 }
@@ -194,13 +242,14 @@ namespace RePower
             }
 
             ScanExternalReservable(); // Handle the scanning of external reservable objects
+            ScanScheduledBuildings(); // Search for buildings with scheduled activation
 
             BuildingsToModify.Clear();
             MedicalBeds.Clear();
             HiTechResearchBenches.Clear();
             Autodoors.Clear();
             DeepDrills.Clear();
-            HydroponcsBasins.Clear(); 
+            HydroponcsBasins.Clear();
 
             var maps = Find.Maps;
             foreach (Map map in maps)
