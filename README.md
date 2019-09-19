@@ -22,3 +22,4 @@ Hugslib
   - AutoDoor (5W Idle, 500W Active) (Active when open, but not blocked or held)
   - Televisions (10W Idle, 400W Active) (Active when being watched)
   - Deep Drill (10W Idle, 500W Active)
+  - Hydroponics Basin (10W Idle, 75W Active) (Active when something is planted in it)
