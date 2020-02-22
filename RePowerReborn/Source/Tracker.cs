@@ -203,15 +203,16 @@ namespace RePower
             }
         }
 
+        [System.Obsolete] //Workaround because I can't code haha. (Jelly) 
         public void EvalHydroponicsBasins()
         {
             foreach (var basin in HydroponcsBasins)
             {
                 if (basin == null) continue;
                 if (basin.Map == null) continue;
-                //Updated for new Rimworld CellRect in 1.1
-                CellRect.Enumerator cri = basin.OccupiedRect().GetEnumerator();
-                while (!cri.MoveNext()) //Changed from !cri.Done()
+
+                CellRect.CellRectIterator cri = basin.OccupiedRect().GetIterator();
+                while (!cri.Done())
                 {
                     var thingsOnTile = basin.Map.thingGrid.ThingsListAt(cri.Current);
                     foreach (var thing in thingsOnTile)
