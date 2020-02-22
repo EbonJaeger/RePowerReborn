@@ -4,7 +4,9 @@
   <url>https://github.com/EbonJaeger/RePowerReborn</url>
   <supportedVersions>
     <li>1.0</li>
+    <li>1.1</li>
   </supportedVersions>
+  <packageId>EbonJaeger.RePowerReborn</packageId>
   <author>Texel (updated to 1.0 by NubsPixel, continued by EbonJaeger)</author>
   <description> &lt;color=orange&gt;&lt;b&gt;Important: &lt;/b&gt; This mod requires HubsLib to be loaded before it in the load order.&lt;/color&gt;
 
