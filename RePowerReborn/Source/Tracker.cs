@@ -203,7 +203,6 @@ namespace RePower
             }
         }
 
-        [System.Obsolete] //Workaround because I can't code haha. (Jelly) 
         public void EvalHydroponicsBasins()
         {
             foreach (var basin in HydroponcsBasins)
@@ -211,10 +210,9 @@ namespace RePower
                 if (basin == null) continue;
                 if (basin.Map == null) continue;
 
-                CellRect.CellRectIterator cri = basin.OccupiedRect().GetIterator();
-                while (!cri.Done())
+                foreach (var tile in basin.OccupiedRect())
                 {
-                    var thingsOnTile = basin.Map.thingGrid.ThingsListAt(cri.Current);
+                    var thingsOnTile = basin.Map.thingGrid.ThingsListAt(tile);
                     foreach (var thing in thingsOnTile)
                     {
                         if (thing is Plant)
@@ -223,7 +221,6 @@ namespace RePower
                             break;
                         }
                     }
-                    cri.MoveNext();
                 }
             }
         }
