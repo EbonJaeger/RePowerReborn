@@ -209,9 +209,9 @@ namespace RePower
             {
                 if (basin == null) continue;
                 if (basin.Map == null) continue;
-
-                CellRect.CellRectIterator cri = basin.OccupiedRect().GetIterator();
-                while (!cri.Done())
+                //Updated for new Rimworld CellRect in 1.1
+                CellRect.Enumerator cri = basin.OccupiedRect().GetEnumerator();
+                while (!cri.MoveNext()) //Changed from !cri.Done()
                 {
                     var thingsOnTile = basin.Map.thingGrid.ThingsListAt(cri.Current);
                     foreach (var thing in thingsOnTile)
