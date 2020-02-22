@@ -15,7 +15,8 @@ using RimWorld;            // RimWorld specific functions are found here (like '
 // Hugslib
 // ----------------------------------------------------------------------
 using HugsLib;
-using Harmony;
+using HarmonyLib; // Updated for Harmony 2.0 "using Harmony; -> using HarmonyLib;" 
+
 
 namespace RePower
 {
