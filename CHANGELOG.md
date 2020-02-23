@@ -1,3 +1,7 @@
+## 1.2:
+- Updated to be compatible with 1.1
+- About.xml changed to reflect the inbuilt dependancy/sorting function. 
+
 ## 1.1.0.1:
 - Fix error with Manifest.xml
 

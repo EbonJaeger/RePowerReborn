@@ -168,4 +168,16 @@
     <poweredWorkbench>false</poweredWorkbench>
     <poweredReservable>true</poweredReservable>
   </RePower.RePowerDef>
+   
+     <RePower.RePowerDef>
+    <!-- SunLamps -->
+    <!-- Added missing Example Def --> 
+    <defName>RePowerSunLamp</defName>
+    <targetDef>SunLamp</targetDef>
+    <lowPower>-0</lowPower>
+    <highPower>-2900</highPower>
+    <poweredWorkbench>false</poweredWorkbench>
+    <poweredReservable>false</poweredReservable>
+	<scheduledPower>true</scheduledPower>
+  </RePower.RePowerDef>
 </Defs>
