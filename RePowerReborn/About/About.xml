@@ -6,6 +6,12 @@
     <li>1.0</li>
     <li>1.1</li>
   </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>UnlimitedHugs.HugsLib</packageId>
+      <displayName>HugsLib</displayName>
+    </li>  
+  </modDependencies>  
   <packageId>EbonJaeger.RePowerReborn</packageId>
   <author>Texel (updated to 1.0 by NubsPixel, continued by EbonJaeger)</author>
   <description> &lt;color=orange&gt;&lt;b&gt;Important: &lt;/b&gt; This mod requires HubsLib to be loaded before it in the load order.&lt;/color&gt;
