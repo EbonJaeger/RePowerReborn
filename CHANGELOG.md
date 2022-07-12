@@ -1,3 +1,7 @@
+## 1.3:
+- Modify project structure to align with recommended mod structure
+- Add support for Rimworld 1.2 and 1.3
+
 ## 1.2:
 - Updated to be compatible with 1.1
 - About.xml changed to reflect the inbuilt dependancy/sorting function. 

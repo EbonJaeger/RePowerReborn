@@ -14,7 +14,9 @@
 *.userprefs
 
 # Build results
-Assemblies/
+Release/
+Debug/
+net472/
 obj/
 
 # Libraries
